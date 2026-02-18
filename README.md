@@ -36,21 +36,15 @@ Copy the skills to your agent's skill directory:
 # Claude Code
 cp -r skills/* ~/.claude/skills/
 
-# Cursor
-cp -r skills/* ~/.cursor/skills/
-
-# Windsurf
-cp -r skills/* ~/.codeium/windsurf/skills/
-
-# Or any agent — just copy to its skill directory
-cp -r skills/* <your-agent-skills-dir>/
+# Codex
+cp -r skills/* ~/.codex/skills/
 ```
 
 Pick individual skills if you don't need all of them:
 
 ```bash
-cp -r skills/feature-radar <your-agent-skills-dir>/
-cp -r skills/archive-feature <your-agent-skills-dir>/
+cp -r skills/feature-radar ~/.claude/skills/
+cp -r skills/feature-radar-archive ~/.claude/skills/
 ```
 
 ## Skills Library
@@ -58,28 +52,28 @@ cp -r skills/archive-feature <your-agent-skills-dir>/
 | Skill | Trigger | Output |
 |-------|---------|--------|
 | **feature-radar** | "feature radar", "what should we build next" | Full 6-phase workflow → all directories + base.md |
-| **scan-opportunities** | "scan opportunities", "brainstorm ideas" | New entries → `opportunities/` |
-| **archive-feature** | "archive feature", "this feature is done" | Move to `archive/` + extraction checklist |
-| **extract-learnings** | "extract learnings", "capture what we learned" | Patterns → `specs/` |
-| **add-reference** | "add reference", "interesting approach" | Observations → `references/` |
+| **feature-radar:scan** | "scan opportunities", "brainstorm ideas" | New entries → `opportunities/` |
+| **feature-radar:archive** | "archive feature", "this feature is done" | Move to `archive/` + extraction checklist |
+| **feature-radar:learn** | "extract learnings", "capture what we learned" | Patterns → `specs/` |
+| **feature-radar:ref** | "add reference", "interesting approach" | Observations → `references/` |
 
 ### feature-radar
 
 The full workflow. Analyzes your project, creates `.feature-radar/` with `base.md` (project dashboard), then runs 6 phases: scan, archive, organize, gap analysis, evaluate, propose. Ends by recommending what to build next.
 
-### scan-opportunities
+### feature-radar:scan
 
 Discover new ideas — from creative brainstorming, user pain points, ecosystem evolution, technical possibilities, or cross-project research. Deduplicates against existing tracking and evaluates each candidate on 6 criteria including value uplift and innovation potential.
 
-### archive-feature
+### feature-radar:archive
 
 Archive a shipped, rejected, or covered feature. Then runs the mandatory extraction checklist: extract learnings → specs, derive new opportunities, update references, update trends. Does NOT skip steps.
 
-### extract-learnings
+### feature-radar:learn
 
 Capture reusable patterns, architectural decisions, and pitfalls from completed work. Names files by the pattern, not the feature that produced it.
 
-### add-reference
+### feature-radar:ref
 
 Record external observations and inspiration — ecosystem trends, creative approaches from other projects, research findings, user feedback. Cites source URLs and dates, assesses implications, suggests new opportunities when unmet needs or innovation angles are found.
 

@@ -1,5 +1,5 @@
 ---
-name: scan-opportunities
+name: feature-radar:scan
 description: |
   Discover new feature opportunities from multiple sources — creative brainstorming,
   user feedback, ecosystem evolution, technical possibilities, and cross-project research —
