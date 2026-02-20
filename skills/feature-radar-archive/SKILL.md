@@ -1,5 +1,5 @@
 ---
-name: feature-radar:archive
+name: feature-radar-archive
 description: |
   Archive a completed, rejected, or covered feature into the feature-radar tracking system
   (.feature-radar/archive/) with mandatory learning extraction.

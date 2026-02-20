@@ -1,5 +1,5 @@
 ---
-name: feature-radar:ref
+name: feature-radar-ref
 description: |
   Record external observations, creative inspiration, ecosystem trends, and research findings
   into the feature-radar knowledge base (.feature-radar/references/).

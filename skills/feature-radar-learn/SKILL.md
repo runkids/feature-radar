@@ -1,5 +1,5 @@
 ---
-name: feature-radar:learn
+name: feature-radar-learn
 description: |
   Extract reusable patterns, architectural decisions, and pitfalls from completed work
   into the feature-radar knowledge base (.feature-radar/specs/).
