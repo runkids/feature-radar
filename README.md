@@ -53,13 +53,13 @@ flowchart TD
     B --> B1[Read base.md thoroughly]
     B1 --> B2[Scan existing files]
     B2 --> B3[State understanding]
-    B3 --> C{Understanding\nconfirmed?}
+    B3 --> C{Understanding<br/>confirmed?}
     C -->|No| B
-    C -->|Yes| D[Behavioral Directives\nloaded]
+    C -->|Yes| D[Behavioral Directives<br/>loaded]
     D --> E[Execute Workflow Steps]
-    E --> F{Important\noutput?}
-    F -->|Yes| G[Write file +\nannotation review]
-    F -->|No| H[Conversational\nconfirm]
+    E --> F{Important<br/>output?}
+    F -->|Yes| G[Write file +<br/>annotation review]
+    F -->|No| H[Conversational<br/>confirm]
     G --> I{User annotated?}
     I -->|Yes| J[Address notes]
     J --> K{Approved?}
