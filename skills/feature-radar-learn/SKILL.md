@@ -16,15 +16,33 @@ description: |
 
 Capture reusable knowledge from completed work into `.feature-radar/specs/`.
 
-## Prerequisites
+## Deep Read
 
 <HARD-GATE>
-Before starting, verify and complete ALL:
+Before ANY action, complete ALL steps — do NOT skip or rush:
 
 1. `.feature-radar/` directory exists — if not, tell user to run `feature-radar` skill first and STOP
-2. Read `.feature-radar/base.md`
-3. From base.md, identify: **Project Language**, **Key Feature Areas**, **Inspiration Sources**
-4. Use this context in ALL subsequent decisions
+2. **Read base.md thoroughly** — understand Project Context, Feature Inventory, Classification Rules, and current Tracking Summary counts
+3. **Scan existing files** — list what's already in archive/, opportunities/, specs/, references/. Read file names and headers to understand current state
+4. **Identify context** — extract and state:
+   - Project Language & Architecture
+   - Key Feature Areas (from Feature Inventory)
+   - Inspiration Sources
+   - Current counts: {archive: n, opportunities: n, specs: n, references: n}
+5. **State your understanding** — in 2-3 sentences, describe what the project does, what's already tracked, and what gaps you see
+
+Proceed to workflow ONLY after completing all 5 steps.
+</HARD-GATE>
+
+## Behavioral Directives
+
+<HARD-GATE>
+Follow ALL directives throughout this skill's execution:
+
+1. **Read deeply, not superficially** — When reading files, understand the intricacies: relationships between files, naming conventions, architectural patterns. Do NOT skim. If a file references another, follow the reference.
+2. **Artifacts over conversation** — Write findings to files, not just chat messages. Every substantive output must persist in `.feature-radar/`.
+3. **Do not stop mid-flow** — Complete ALL workflow steps before stopping. If a step yields no results, state "No findings" and continue to the next step.
+4. **State what you produced** — After each step, explicitly state: what file was created/updated, what changed, and what's next.
 </HARD-GATE>
 
 ## Workflow
@@ -47,7 +65,8 @@ State the classification explicitly in your output.
 </HARD-GATE>
 
 4. **Write to specs** — create or append to `.feature-radar/specs/{topic}.md`
-5. **Update base.md** — increment the specs count in Tracking Summary
+5. **Checkpoint** — State what was written and ask: "I've written to `specs/{topic}.md` ({classification type}). Does this look correct, or should I adjust anything?" Wait for user confirmation before proceeding.
+6. **Update base.md** — increment the specs count in Tracking Summary
 
 ## File Format
 
@@ -79,3 +98,18 @@ State the classification explicitly in your output.
 → Created specs/symlink-vs-copy-tradeoffs.md (Decision)
 → Updated base.md: specs 2 → 3
 ```
+
+## Completion Summary
+
+When all steps are done, present:
+
+```
+── Feature Radar: Learn Complete ──
+
+Files created:  + {path} (new)
+Files updated:  ~ {path} (what changed)
+Counts: archive {n}, opportunities {n}, specs {n}, references {n}
+Next suggested action: {recommendation}
+```
+
+Do not end with "this should work" or "try this". End with the summary above.
