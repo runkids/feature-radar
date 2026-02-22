@@ -8,11 +8,81 @@ Works with any AI agent that supports [SKILL.md](https://github.com/anthropics/c
 
 ## How It Works
 
-It starts the moment you say "feature radar." Your agent analyzes your project — language, architecture, key feature areas — and builds a structured tracking system at `.feature-radar/`.
+Say "feature radar" and your agent analyzes your project — language, architecture, key feature areas — and builds a structured tracking system at `.feature-radar/`. From there, every feature goes through a lifecycle:
 
-From there, every feature goes through a lifecycle: discovered as an opportunity, evaluated against real demand and strategic fit, built and archived with mandatory learning extraction. **Archiving is not the end — it's a checkpoint.** Every shipped feature produces learnings, reveals new gaps, and opens new directions. The archive checklist enforces this so institutional knowledge compounds instead of evaporating.
+```mermaid
+flowchart TD
+    subgraph Discovery
+        S1["scan"] --> OPP[opportunities/]
+        S2["ref"] --> REF[references/]
+    end
+
+    subgraph Evaluation
+        FR["feature-radar"] --> |Phase 1-3| CLASSIFY{Classify}
+        CLASSIFY --> |Open| OPP
+        CLASSIFY --> |Done/Rejected| ARC[archive/]
+        CLASSIFY --> |Pattern| SPEC[specs/]
+        CLASSIFY --> |External| REF
+        FR --> |Phase 5-6| RANK[Rank & Propose]
+        RANK --> BUILD["Enter plan mode"]
+    end
+
+    subgraph Completion
+        DONE["archive"] --> ARC
+        DONE --> |extract learnings| SPEC
+        DONE --> |derive opportunities| OPP
+        DONE --> |update references| REF
+        S3["learn"] --> SPEC
+    end
+
+    OPP --> FR
+    BUILD --> DONE
+```
+
+**Archiving is not the end — it's a checkpoint.** Every shipped feature produces learnings, reveals new gaps, and opens new directions. The archive checklist enforces this so institutional knowledge compounds instead of evaporating.
 
 The skills trigger automatically — just say "what should we build next" or "this feature is done" and the right workflow kicks in.
+
+## How Skills Execute
+
+Every skill follows the same execution model — deep understanding before action, structured checkpoints during execution, and verified completion:
+
+```mermaid
+flowchart TD
+    A[Trigger phrase received] --> B[Deep Read]
+    B --> B1[Read base.md thoroughly]
+    B1 --> B2[Scan existing files]
+    B2 --> B3[State understanding]
+    B3 --> C{Understanding\nconfirmed?}
+    C -->|No| B
+    C -->|Yes| D[Behavioral Directives\nloaded]
+    D --> E[Execute Workflow Steps]
+    E --> F{Important\noutput?}
+    F -->|Yes| G[Write file +\nannotation review]
+    F -->|No| H[Conversational\nconfirm]
+    G --> I{User annotated?}
+    I -->|Yes| J[Address notes]
+    J --> K{Approved?}
+    I -->|No / approved| L[Continue]
+    K -->|No| J
+    K -->|Yes| L
+    H --> L
+    L --> M{More steps?}
+    M -->|Yes| E
+    M -->|No| N[Completion Summary]
+```
+
+### Annotation Cycle
+
+You can steer any skill's output by annotating files directly:
+
+1. The skill writes a file (e.g., `opportunities/07-streaming.md`)
+2. Open the file, add `> NOTE: your correction` anywhere
+3. Tell the agent "address my notes"
+4. The agent reads all `> NOTE:` lines, applies corrections, removes markers
+5. Repeat until satisfied
+
+This is the fastest way to inject domain knowledge the agent doesn't have — architecture constraints, naming conventions, strategic decisions.
 
 ## Installation
 
@@ -59,23 +129,23 @@ cp -r skills/feature-radar-archive ~/.claude/skills/
 
 ### feature-radar
 
-The full workflow. Analyzes your project, creates `.feature-radar/` with `base.md` (project dashboard), then runs 6 phases: scan, archive, organize, gap analysis, evaluate, propose. Ends by recommending what to build next.
+The full workflow. Analyzes your project, creates `.feature-radar/` with `base.md` (project dashboard), then runs 6 phases: scan, archive, organize, gap analysis, evaluate, propose. Ends by recommending what to build next. Starts with deep project analysis and confirms understanding before proceeding. Checkpoints after Phase 1, 3, and 5 let you steer mid-flow.
 
 ### feature-radar:scan
 
-Discover new ideas — from creative brainstorming, user pain points, ecosystem evolution, technical possibilities, or cross-project research. Deduplicates against existing tracking and evaluates each candidate on 6 criteria including value uplift and innovation potential.
+Discover new ideas — from creative brainstorming, user pain points, ecosystem evolution, technical possibilities, or cross-project research. Deduplicates against existing tracking and evaluates each candidate on 6 criteria including value uplift and innovation potential. Deeply reads existing tracking state to avoid duplicates. After creating files, offers annotation review so you can refine Impact/Effort/Position.
 
 ### feature-radar:archive
 
-Archive a shipped, rejected, or covered feature. Then runs the mandatory extraction checklist: extract learnings → specs, derive new opportunities, update references, update trends. Does NOT skip steps.
+Archive a shipped, rejected, or covered feature. Then runs the mandatory extraction checklist: extract learnings → specs, derive new opportunities, update references, update trends. Does NOT skip steps. After creating the archive file, offers annotation review before running the extraction checklist.
 
 ### feature-radar:learn
 
-Capture reusable patterns, architectural decisions, and pitfalls from completed work. Names files by the pattern, not the feature that produced it.
+Capture reusable patterns, architectural decisions, and pitfalls from completed work. Names files by the pattern, not the feature that produced it. Confirms each finding with you before writing to specs/.
 
 ### feature-radar:ref
 
-Record external observations and inspiration — ecosystem trends, creative approaches from other projects, research findings, user feedback. Cites source URLs and dates, assesses implications, suggests new opportunities when unmet needs or innovation angles are found.
+Record external observations and inspiration — ecosystem trends, creative approaches from other projects, research findings, user feedback. Cites source URLs and dates, assesses implications, suggests new opportunities when unmet needs or innovation angles are found. Confirms impact assessment with you before writing.
 
 ## What Gets Generated
 
