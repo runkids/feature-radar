@@ -202,6 +202,12 @@ Follow ALL directives throughout this skill's execution:
 3. **Do not stop mid-flow** — Complete ALL workflow steps before stopping. If a step yields no results, state "No findings" and continue to the next step.
 4. **State what you produced** — After each step, explicitly state: what file was created/updated, what changed, and what's next.
 5. **Do not skip phases** — Phase 1-3 are mandatory. For Phase 4-6, state the skip condition check result before deciding to skip.
+6. **Reconcile on subsequent runs** — if `.feature-radar/` already exists (not bootstrap), verify state consistency before Phase 1:
+   - Count actual files in archive/, opportunities/, specs/, references/
+   - Compare with Tracking Summary counts in base.md
+   - If mismatch: update base.md counts and state "Reconciled: {category} {old} → {new}"
+   - Check archive/ files for incomplete extraction checklists
+   - State reconciliation result before starting Phase 1
 </HARD-GATE>
 
 ## Workflow

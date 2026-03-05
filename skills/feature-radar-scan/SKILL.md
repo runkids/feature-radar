@@ -35,8 +35,14 @@ Before ANY action, complete ALL steps — do NOT skip or rush:
    - Inspiration Sources
    - Current counts: {archive: n, opportunities: n, specs: n, references: n}
 5. **State your understanding** — in 2-3 sentences, describe what the project does, what's already tracked, and what gaps you see
+6. **Reconcile state** — verify consistency before proceeding:
+   - Count actual files in archive/, opportunities/, specs/, references/
+   - Compare with Tracking Summary counts in base.md
+   - If mismatch: update base.md counts and state "Reconciled: {category} {old} → {new}"
+   - Check archive/ files for incomplete extraction checklists (missing specs/, no derived opportunities noted)
+   - State reconciliation result: "State consistent" or list corrections made
 
-Proceed to workflow ONLY after completing all 5 steps.
+Proceed to workflow ONLY after completing all 6 steps.
 </HARD-GATE>
 
 ## Behavioral Directives
