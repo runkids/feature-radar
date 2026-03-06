@@ -75,7 +75,7 @@ Your agent analyzes your project — language, architecture, key features — an
 └── references/       ← External inspiration, ecosystem trends, research
 ```
 
-The data format is defined in [`SPEC.md`](SPEC.md) — a language-agnostic specification that any AI tool can implement.
+The data format is defined in [`SPEC.md`](skills/feature-radar/references/SPEC.md) — a language-agnostic specification that any AI tool can implement.
 
 Every feature goes through a lifecycle — discovered, evaluated, built, archived. And every archived feature feeds back into the system:
 
