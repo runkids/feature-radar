@@ -24,13 +24,13 @@ Discover new feature opportunities and add them to `.feature-radar/opportunities
 ## Deep Read
 
 <HARD-GATE>
-Read and follow `reference/DEEP-READ.md` — complete all 6 steps before proceeding.
+Read and follow `../feature-radar/references/DEEP-READ.md` — complete all 6 steps before proceeding.
 </HARD-GATE>
 
 ## Behavioral Directives
 
 <HARD-GATE>
-Read and follow `reference/DIRECTIVES.md`.
+Read and follow `../feature-radar/references/DIRECTIVES.md`.
 
 Additional directive for this skill:
 - **Filter aggressively** — Do NOT create opportunity files for weak signals. If you can't cite concrete demand evidence, skip it.
@@ -73,7 +73,7 @@ Each criterion must be explicitly addressed — do not skip any.
 | **Ecosystem timing** | Is the ecosystem ready? |
 
 6. **Create opportunity files** — for each viable candidate, write `.feature-radar/opportunities/{nn}-{slug}.md`
-7. **Checkpoint — Review & Annotate** per `reference/WORKFLOW-PATTERNS.md`
+7. **Checkpoint — Review & Annotate** per `../feature-radar/references/WORKFLOW-PATTERNS.md`
 
 8. **Update base.md** — increment opportunities count, update Value & Innovation Landscape if needed
 
@@ -100,4 +100,4 @@ Use the format defined in `SPEC.md` § 3.3 (`opportunities/{nn}-{slug}.md`).
 
 ## Completion Summary
 
-Follow the template in `reference/DIRECTIVES.md`, with skill name "Scan Complete".
+Follow the template in `../feature-radar/references/DIRECTIVES.md`, with skill name "Scan Complete".

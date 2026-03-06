@@ -3,6 +3,8 @@ name: feature-radar
 description: |
   Full-cycle feature discovery, evaluation, and prioritization. Analyzes the codebase, builds
   a knowledge base at .feature-radar/, and runs a 6-phase workflow to recommend what to build next.
+  Modes: (none)/full = all phases, quick = scan+archive+organize (1-3),
+  evaluate = prioritize existing opportunities (5-6), #N = deep-dive one opportunity.
   Use when:
   - "what should we build next?" or "what's most impactful?"
   - Review/prioritize backlog or feature ideas
@@ -16,6 +18,27 @@ description: |
 ---
 
 # Feature Discovery & Prioritization
+
+## Mode Routing
+
+<HARD-GATE>
+Parse the user argument BEFORE any other logic. Determine the mode:
+
+| Argument | Mode | Phases |
+|----------|------|--------|
+| (none) or `full` | full | 1-6 (all) |
+| `quick` | quick | 1-3 only |
+| `evaluate` | evaluate | reconciliation → 5-6 (skip 1-3) |
+| `#N` (e.g. `#2`) | focus | Read opportunity N → Phase 5 (single item) → Phase 6 |
+
+Route rules:
+- **full**: Follow normal workflow (Phase 1-6).
+- **quick**: Execute Phase 1-3, then skip to Completion Summary.
+- **evaluate**: Run "Subsequent Runs" reconciliation (steps 1-2), then jump directly to Phase 5-6.
+- **focus (#N)**: Read `.feature-radar/opportunities/{N}-*.md`. If not found, list available opportunities and ask user to pick. Then run Phase 5 for that single opportunity, followed by Phase 6.
+
+State the detected mode before proceeding: "Mode: {mode}"
+</HARD-GATE>
 
 ## Bootstrap (First Run)
 
@@ -42,7 +65,7 @@ Complete ALL steps before presenting base.md to the user:
 5. **Verify with user** — present the generated base.md and ask: "Does this accurately describe your project?"
 </HARD-GATE>
 
-After presenting base.md, support iterative refinement per `reference/WORKFLOW-PATTERNS.md`.
+After presenting base.md, support iterative refinement per `references/WORKFLOW-PATTERNS.md`.
 
 <HARD-GATE>
 Do NOT proceed to the Workflow until the user approves base.md.
@@ -70,16 +93,16 @@ After creating the directory, ask the user:
 
 On subsequent runs (`.feature-radar/` already exists):
 1. Read existing `base.md` — do NOT overwrite
-2. Run reconciliation per `reference/DEEP-READ.md` steps 4-6
-3. Proceed to Workflow Phase 1
+2. Run reconciliation per `references/DEEP-READ.md` steps 4-6
+3. Proceed to Mode Routing
 
 ## Behavioral Directives
 
 <HARD-GATE>
-Read and follow `reference/DIRECTIVES.md`.
+Read and follow `references/DIRECTIVES.md`.
 
 Additional directives for this skill:
-- **Do not skip phases** — Phase 1-3 are mandatory. For Phase 4-6, state the skip condition check result before deciding to skip.
+- **Do not skip phases outside mode rules** — follow the Mode Routing and Phase execution HARD-GATEs. For conditional phases, state the skip condition check result before deciding to skip.
 - **Reconcile on subsequent runs** — see "Subsequent Runs" section above.
 </HARD-GATE>
 
@@ -88,10 +111,24 @@ Additional directives for this skill:
 Execute phases in order.
 
 <HARD-GATE>
-Phase execution rules:
-- **Phase 1-3**: ALWAYS execute. These are mandatory.
-- **Phase 4** (Gap Analysis): Skip ONLY if no documentation directory exists in the project.
-- **Phase 5-6** (Evaluate & Propose): Skip ONLY if no open opportunities exist in `.feature-radar/opportunities/`.
+Phase execution rules (mode-dependent):
+
+**full mode** (default):
+- Phase 1-3: ALWAYS execute.
+- Phase 4: Skip ONLY if no documentation directory exists.
+- Phase 5-6: Skip ONLY if no open opportunities exist.
+
+**quick mode**:
+- Phase 1-3: Execute. Stop after Phase 3 → Completion Summary.
+
+**evaluate mode**:
+- Phase 1-4: Skip (reconciliation already done in Subsequent Runs).
+- Phase 5-6: Execute. Skip ONLY if no open opportunities exist.
+
+**focus mode (#N)**:
+- Phase 1-4: Skip.
+- Phase 5: Evaluate the single targeted opportunity only.
+- Phase 6: Propose for that opportunity only.
 
 For each phase completed, state what was produced before moving to the next phase.
 </HARD-GATE>
@@ -164,7 +201,7 @@ Rank into tiers:
 
 ## Completion Summary
 
-Follow the template in `reference/DIRECTIVES.md`, with skill name "Complete" and an additional line:
+Follow the template in `references/DIRECTIVES.md`, with skill name "Complete" and an additional line:
 `Top recommendation: {feature name} — {one-line pitch}`
 
 ## Guardrails

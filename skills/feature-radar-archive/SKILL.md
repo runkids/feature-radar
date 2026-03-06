@@ -22,13 +22,13 @@ Move a feature to `.feature-radar/archive/` and run the mandatory extraction che
 ## Deep Read
 
 <HARD-GATE>
-Read and follow `reference/DEEP-READ.md` — complete all 6 steps before proceeding.
+Read and follow `../feature-radar/references/DEEP-READ.md` — complete all 6 steps before proceeding.
 </HARD-GATE>
 
 ## Behavioral Directives
 
 <HARD-GATE>
-Read and follow `reference/DIRECTIVES.md`.
+Read and follow `../feature-radar/references/DIRECTIVES.md`.
 </HARD-GATE>
 
 ## Workflow
@@ -41,7 +41,7 @@ Read and follow `reference/DIRECTIVES.md`.
    - **N/A** — not applicable to our architecture
    - **Deferred** — valuable but postponed with rationale
 3. **Create archive file** — write `.feature-radar/archive/{nn}-{slug}.md`
-4. **Checkpoint — Review & Annotate** per `reference/WORKFLOW-PATTERNS.md`
+4. **Checkpoint — Review & Annotate** per `../feature-radar/references/WORKFLOW-PATTERNS.md`
 
 5. **Run extraction checklist**:
 
@@ -88,4 +88,4 @@ Use the format defined in `SPEC.md` § 3.2 (`archive/{nn}-{slug}.md`).
 
 ## Completion Summary
 
-Follow the template in `reference/DIRECTIVES.md`, with skill name "Archive Complete".
+Follow the template in `../feature-radar/references/DIRECTIVES.md`, with skill name "Archive Complete".

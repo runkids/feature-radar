@@ -23,13 +23,13 @@ Record external observations into `.feature-radar/references/`.
 ## Deep Read
 
 <HARD-GATE>
-Read and follow `reference/DEEP-READ.md` — complete all 6 steps before proceeding.
+Read and follow `../feature-radar/references/DEEP-READ.md` — complete all 6 steps before proceeding.
 </HARD-GATE>
 
 ## Behavioral Directives
 
 <HARD-GATE>
-Read and follow `reference/DIRECTIVES.md`.
+Read and follow `../feature-radar/references/DIRECTIVES.md`.
 </HARD-GATE>
 
 ## Workflow
@@ -84,4 +84,4 @@ Name by the subject being tracked, not the event:
 
 ## Completion Summary
 
-Follow the template in `reference/DIRECTIVES.md`, with skill name "Ref Complete".
+Follow the template in `../feature-radar/references/DIRECTIVES.md`, with skill name "Ref Complete".

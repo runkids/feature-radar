@@ -23,13 +23,13 @@ Capture reusable knowledge from completed work into `.feature-radar/specs/`.
 ## Deep Read
 
 <HARD-GATE>
-Read and follow `reference/DEEP-READ.md` — complete all 6 steps before proceeding.
+Read and follow `../feature-radar/references/DEEP-READ.md` — complete all 6 steps before proceeding.
 </HARD-GATE>
 
 ## Behavioral Directives
 
 <HARD-GATE>
-Read and follow `reference/DIRECTIVES.md`.
+Read and follow `../feature-radar/references/DIRECTIVES.md`.
 </HARD-GATE>
 
 ## Workflow
@@ -77,4 +77,4 @@ Use the format defined in `SPEC.md` § 3.4 (`specs/{topic}.md`).
 
 ## Completion Summary
 
-Follow the template in `reference/DIRECTIVES.md`, with skill name "Learn Complete".
+Follow the template in `../feature-radar/references/DIRECTIVES.md`, with skill name "Learn Complete".
