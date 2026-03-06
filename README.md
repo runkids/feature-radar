@@ -60,6 +60,8 @@ cp -r skills/* ~/.codex/skills/
 
 Then say **"feature radar"** in your next session. That's it.
 
+You can also say **"feature radar quick"** for a fast scan, **"feature radar evaluate"** to jump to prioritization, or **"feature radar #2"** to deep-dive a specific opportunity.
+
 ## What Happens Under the Hood
 
 Your agent analyzes your project — language, architecture, key features — and builds a structured knowledge base:
@@ -119,6 +121,7 @@ Just say the trigger phrase — the right workflow kicks in automatically.
 | **archive** | "archive feature", "this feature is done" | Move to `archive/` + mandatory learning extraction |
 | **learn** | "extract learnings", "save this decision" | Capture patterns & decisions → `specs/` |
 | **ref** | "add reference", "interesting approach" | Record external observations → `references/` |
+| **validate** | "validate", "check format", "lint skills" | Validate SKILL.md frontmatter + `.feature-radar/` files against format rules |
 
 <details>
 <summary><strong>Skill details</strong></summary>
@@ -126,6 +129,15 @@ Just say the trigger phrase — the right workflow kicks in automatically.
 ### feature-radar (main workflow)
 
 The full 6-phase workflow. Analyzes your project, creates `.feature-radar/` with `base.md` (project dashboard), then runs: scan, archive, organize, gap analysis, evaluate, propose. Checkpoints after Phase 1, 3, and 5 let you steer mid-flow.
+
+**Modes** — pass an argument to run a subset of phases:
+
+| Argument | What it does |
+|----------|-------------|
+| *(none)* or `full` | All 6 phases (default) |
+| `quick` | Phases 1-3 only — fast scan + archive + organize |
+| `evaluate` | Phases 5-6 only — prioritize existing opportunities |
+| `#N` (e.g. `#2`) | Deep-dive a single opportunity — evaluate + propose |
 
 ### scan
 
@@ -142,6 +154,10 @@ Capture reusable patterns, architectural decisions, and pitfalls from completed 
 ### ref
 
 Record external observations — ecosystem trends, creative approaches, research findings, user feedback. Cites sources and dates, assesses implications, suggests new opportunities when relevant.
+
+### validate
+
+Checks SKILL.md frontmatter (description ≤ 1024 chars, kebab-case name) and `.feature-radar/` files against SPEC.md format rules. Reports errors and warnings, then auto-fixes what it can. Runs proactively after any edit to skills or `.feature-radar/` files.
 
 </details>
 
