@@ -1,22 +1,23 @@
 ---
 name: feature-radar-validate
 description: |
-  Validate SKILL.md frontmatter and .feature-radar/ files against format rules. Runs validate.sh,
-  reports errors/warnings, and offers to auto-fix what it can. Use this proactively after editing
-  any SKILL.md or .feature-radar/ file — catching format issues early prevents runtime bugs
-  (like the 1024-char description limit that broke skill registration).
+  Validate SKILL.md frontmatter and .feature-radar/ files against format rules. Runs
+  validate.sh, reports errors/warnings, and auto-fixes issues. MUST use this skill after
+  editing any SKILL.md or .feature-radar/ file — catches format bugs like the 1024-char
+  description limit before they break skill registration.
   Use when:
-  - User says "validate", "check format", "run validation", or "lint skills"
-  - You just edited a SKILL.md file (description, name, or body)
-  - You just created or modified files in .feature-radar/
+  - User says "validate", "check format", "lint skills", "run validation"
+  - You just edited a SKILL.md (description, name, or body) — run proactively
+  - You created or modified files in .feature-radar/ — run proactively
   - Before committing changes that touch skills/ or .feature-radar/
-  Trigger phrases: "validate", "check format", "lint", "run validation",
-  "verify skills", "check skill format", "are my skills valid"
+  - User asks "are my skills valid?", "verify skills", "check skill format"
+  IMPORTANT: Use this proactively after ANY edit to skills/ or .feature-radar/ files,
+  even if the user doesn't ask for it. Format validation prevents silent breakage.
 ---
 
 # Validate Feature Radar
 
-Run `scripts/validate.sh` (bundled with this skill) to check SKILL.md frontmatter and `.feature-radar/` SPEC compliance, then fix any issues found.
+Run `skills/feature-radar-validate/scripts/validate.sh` from the project root to check SKILL.md frontmatter and `.feature-radar/` SPEC compliance, then fix any issues found.
 
 ## Why This Matters
 

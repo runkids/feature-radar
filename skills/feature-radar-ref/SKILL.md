@@ -1,19 +1,19 @@
 ---
 name: feature-radar-ref
 description: |
-  Record external observations, creative inspiration, ecosystem trends, and research findings
-  into .feature-radar/references/. This is the skill for capturing anything interesting from
-  outside your project — other tools, articles, competitor approaches, community discussions.
-  Use this whenever the user mentions seeing something cool elsewhere or wants to bookmark
-  an external insight for future reference.
-  Use when:
-  - User says "I saw this cool thing in Stripe's API" or "check out how X handles this"
-  - An ecosystem trend is emerging (new tools, standards, community patterns)
-  - A related project shipped a notable feature worth noting
-  - User shares a URL, article, talk, or research finding with relevant insights
-  - A user comparison or question reveals a gap or opportunity
-  Trigger phrases: "add reference", "log observation", "track this project",
-  "ecosystem observation", "interesting approach", "save inspiration"
+  Record external observations, ecosystem trends, and creative inspiration into
+  .feature-radar/references/. MUST use this skill when the user mentions something
+  interesting from outside their project — other tools, articles, approaches, or trends.
+  Even casual mentions like "I saw a cool thing in X" should trigger this skill.
+  Use when the user:
+  - Says "I saw this cool thing in X's API", "check out how X handles this"
+  - Shares a URL, article, talk, or research finding with relevant insights
+  - Notes an ecosystem trend: new tools, standards, community patterns
+  - Mentions a related project shipping a notable feature
+  - Wants to bookmark external inspiration: "interesting approach", "save this"
+  - Says "add reference", "log observation", "track this project"
+  Do NOT use for internal learnings/patterns — that's feature-radar-learn's job.
+  Do NOT use for prioritizing features — that's feature-radar's job.
 ---
 
 # Add Reference

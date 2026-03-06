@@ -1,20 +1,18 @@
 ---
 name: feature-radar
 description: |
-  Full-cycle feature discovery, evaluation, and prioritization. Analyzes the codebase, builds
-  a knowledge base at .feature-radar/, and runs a 6-phase workflow to recommend what to build next.
-  Modes: (none)/full = all phases, quick = scan+archive+organize (1-3),
-  evaluate = prioritize existing opportunities (5-6), #N = deep-dive one opportunity.
-  Use when:
-  - "what should we build next?" or "what's most impactful?"
-  - Review/prioritize backlog or feature ideas
-  - Set up feature tracking for a new project
-  - Periodic review to reassess priorities and find gaps
-  - Evaluate trade-offs between multiple feature ideas
-  - Roadmap planning, project direction, strategic priorities
-  - Identifying documentation gaps
-  Trigger phrases: "feature radar", "what should we build next", "feature priorities",
-  "project roadmap", "help me prioritize", "review our backlog", "innovation scan"
+  Full-cycle feature discovery, evaluation, and prioritization. Builds a persistent knowledge
+  base at .feature-radar/ and runs a 6-phase workflow to recommend what to build next.
+  Modes: full (all phases), quick (scan only), evaluate (prioritize), #N (deep-dive one).
+  MUST use this skill whenever the user asks about feature priorities, roadmaps, what to build,
+  or wants to evaluate/compare feature ideas — even if they don't say "feature radar" explicitly.
+  Use when the user:
+  - Asks "what should we build next?", "what's most impactful?", or similar
+  - Wants to prioritize, rank, or compare features or backlog items
+  - Needs roadmap planning, project direction, or strategic feature decisions
+  - Says "help me prioritize", "review our backlog", "what are we missing"
+  - Mentions .feature-radar/ directory or feature tracking
+  - Wants periodic reassessment of deferred or open opportunities
 ---
 
 # Feature Discovery & Prioritization
@@ -93,7 +91,7 @@ After creating the directory, ask the user:
 
 On subsequent runs (`.feature-radar/` already exists):
 1. Read existing `base.md` — do NOT overwrite
-2. Run reconciliation per `references/DEEP-READ.md` steps 4-6
+2. Run reconciliation per `references/DEEP-READ.md` steps 2-6
 3. Proceed to Mode Routing
 
 ## Behavioral Directives
@@ -143,7 +141,17 @@ For each phase completed, state what was produced before moving to the next phas
    - **Cross-cutting pattern** → specs
    - **External observation** → references
 
-**Checkpoint**: State classification results — how many archived, how many open, how many specs, how many references. Ask: "Phase 1 complete: {summary}. Continue to Phase 2?"
+**Checkpoint**: Present classification results using this format, then ask "Continue to Phase 2?"
+
+```
+Phase 1 complete:
+| Classification | Count | Items |
+|---------------|-------|-------|
+| Archive       | {n}   | {list} |
+| Opportunity   | {n}   | {list} |
+| Spec          | {n}   | {list} |
+| Reference     | {n}   | {list} |
+```
 
 ### Phase 2: Archive Completed Features
 
@@ -163,7 +171,14 @@ For each archive candidate:
 2. Assess **Impact** and **Effort** realistically
 3. Write an honest "Our Position" — do we actually want this?
 
-**Checkpoint**: List all opportunity files created with Impact/Effort ratings. Ask: "Phase 3 complete: {n} opportunities organized. Continue to Phase 4?"
+**Checkpoint**: Present opportunities using this format, then ask "Continue to Phase 4?"
+
+```
+Phase 3 complete: {n} opportunities organized
+| # | Opportunity | Impact | Effort | Our Position |
+|---|------------|--------|--------|-------------|
+| {nn} | {title} | High/Med/Low | High/Med/Low | {1-line stance} |
+```
 
 ### Phase 4: Gap Analysis
 
@@ -189,15 +204,32 @@ Rank into tiers:
 - **Monitor**: Low demand or premature
 - **Skip**: Conflicts with philosophy or negligible value
 
-**Checkpoint**: Present the tier ranking table. Ask: "Phase 5 complete: ranking above. Continue to Phase 6 (Propose)?"
+**Checkpoint**: Present tier ranking using this format, then ask "Continue to Phase 6 (Propose)?"
+
+```
+Phase 5 complete:
+| Tier | # | Opportunity | Demand | Value | Innovation | Effort/Impact | Fit | Timing |
+|------|---|------------|--------|-------|------------|--------------|-----|--------|
+| Build next | {nn} | {title} | {H/M/L} | {H/M/L} | {H/M/L} | {H/M/L} | {H/M/L} | {H/M/L} |
+| Build soon | ... | | | | | | |
+| Monitor    | ... | | | | | | |
+| Skip       | ... | | | | | | |
+```
 
 ### Phase 6: Propose & Decide
 
-1. Present **top 1-3 "Build next" features** with:
-   - One-paragraph pitch: what value does it create?
-   - Estimated effort (days, not hours)
-   - Key decisions to make
-2. Ask: **"Should we enter plan mode for [feature]?"**
+For each "Build next" feature (top 1-3), present a proposal card:
+
+```
+### {nn}. {Title}
+**Pitch**: {One paragraph — what value does this create?}
+**Effort**: {N days} — {brief justification}
+**Key decisions**:
+- {decision 1}
+- {decision 2}
+```
+
+After all cards, ask: **"Should we enter plan mode for [feature]?"**
 
 ## Completion Summary
 

@@ -2,17 +2,16 @@
 name: feature-radar-archive
 description: |
   Archive a completed, rejected, or covered feature into .feature-radar/archive/ with mandatory
-  learning extraction. This is the skill that makes knowledge compound — it doesn't just close
-  a feature, it extracts learnings, derives new opportunities, and updates references. Use this
-  whenever a feature reaches a terminal state, even if the user just casually mentions finishing something.
-  Use when:
-  - User says "we just shipped X" or "X is done" or "we finished the auth system"
-  - A feature was rejected, deemed not applicable, or already covered by existing work
-  - A feature is explicitly deferred with rationale
-  - User wants to close out an opportunity from .feature-radar/opportunities/
-  Trigger phrases: "archive feature", "mark as done", "this feature is done",
-  "close this opportunity", "feature shipped", "reject feature", "we just finished",
-  "X is complete", "defer this feature"
+  learning extraction. MUST use this skill whenever a feature reaches a terminal state — done,
+  rejected, covered, deferred, or N/A. Even casual mentions like "we shipped X" or "X is done"
+  should trigger this. The skill extracts learnings, derives new opportunities, and updates refs.
+  Use when the user:
+  - Says "we shipped X", "X is done", "X is complete", "we just finished X"
+  - Rejects a feature: "we decided not to build X", "reject this", "doesn't fit"
+  - Defers: "defer X", "postpone this", "revisit later", "not now"
+  - Closes an opportunity: "close this opportunity", "mark as done", "archive this"
+  - Mentions any feature reaching Done/Covered/Rejected/Deferred status
+  Do NOT use for discovering new features — that's feature-radar-scan's job.
 ---
 
 # Archive Feature
@@ -65,6 +64,18 @@ Acceptable responses per check:
 
 6. **Remove from opportunities** — if the feature had an `opportunities/` file, delete it
 7. **Update base.md** — adjust counts in Tracking Summary
+
+**Checkpoint**: Present extraction results using this format:
+
+```
+Archive: {nn}-{slug} ({status})
+| Check | Result |
+|-------|--------|
+| Learnings | {created specs/X.md / updated specs/X.md / none} |
+| Opportunities | {created opportunities/X.md / none} |
+| References | {updated references/X.md / none} |
+| Ecosystem | {updated specs/ecosystem-trends.md / none} |
+```
 
 ## Archive File Format
 

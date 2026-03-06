@@ -20,7 +20,21 @@ Files created:  + {path} (new)
 Files updated:  ~ {path} (what changed)
 Files removed:  - {path} (why)
 Counts: archive {n}, opportunities {n}, specs {n}, references {n}
-Next suggested action: {recommendation}
+
+Suggested next:
+- {skill} — {reason based on this session's output}
+- {skill} — {reason}
 ```
+
+Pick 2-3 suggestions from this menu based on what happened in this session:
+
+| Condition | Suggest |
+|-----------|---------|
+| New opportunities were created | `/feature-radar evaluate` — prioritize the new opportunities |
+| A high-priority opportunity was identified | `/feature-radar #N` — deep-dive on {opportunity name} |
+| Features were archived | `/feature-radar-learn` — extract learnings from the archived work |
+| External observations were recorded | `/feature-radar-ref` — expand on the reference with more research |
+| Opportunities backlog is stale (>2 weeks) | `/feature-radar-scan` — refresh with a new scan |
+| Top recommendation was proposed | `enter plan mode` — start implementing the top pick |
 
 Do not end with "this should work" or "try this". End with the summary above.

@@ -1,20 +1,18 @@
 ---
 name: feature-radar-scan
 description: |
-  Discover new feature opportunities from multiple sources — creative brainstorming,
-  user feedback, ecosystem evolution, technical possibilities, and cross-project research —
-  and add them to .feature-radar/opportunities/. Use this when the user wants to generate
-  NEW ideas rather than evaluate existing ones. Even casual mentions like "I wonder what else
-  we could do" or "let's think about new features" should trigger this skill.
-  Use when:
-  - Brainstorming creative feature ideas or exploring new directions
-  - User says "what else could we build?" or "give me some ideas"
-  - Reviewing user feedback, GitHub issues, or community requests for unmet needs
-  - Exploring adjacent tools and ecosystems for inspiration
-  - Periodic opportunity refresh to keep the backlog current
-  Trigger phrases: "scan opportunities", "find new features", "brainstorm ideas",
-  "what could we build", "refresh opportunities", "scan ecosystem", "give me feature ideas",
-  "what are we missing", "explore new directions"
+  Discover new feature opportunities from creative brainstorming, user feedback, ecosystem
+  trends, and cross-project research. Writes results to .feature-radar/opportunities/.
+  MUST use this skill when the user wants to GENERATE new ideas — not evaluate existing ones.
+  Trigger on any request to brainstorm, explore, discover, or find new feature ideas, even
+  casual ones like "I wonder what else we could do" or "give me ideas".
+  Use when the user:
+  - Asks "what else could we build?", "give me feature ideas", "what are we missing?"
+  - Wants to brainstorm, explore new directions, or refresh the opportunity backlog
+  - Says "scan ecosystem", "scan opportunities", "find new features"
+  - Asks to review GitHub issues, community feedback, or adjacent tools for inspiration
+  - Mentions "explore", "discover", or "new directions" in a feature context
+  Do NOT use for evaluating/prioritizing existing features — that's feature-radar's job.
 ---
 
 # Scan Opportunities
@@ -74,6 +72,15 @@ Each criterion must be explicitly addressed — do not skip any.
 
 6. **Create opportunity files** — for each viable candidate, write `.feature-radar/opportunities/{nn}-{slug}.md`
 7. **Checkpoint — Review & Annotate** per `../feature-radar/references/WORKFLOW-PATTERNS.md`
+
+Present scan results using this format:
+
+```
+Scan complete: {n} new opportunities
+| # | Opportunity | Demand Signal | Impact | Effort | Source |
+|---|------------|---------------|--------|--------|--------|
+| {nn} | {title} | {evidence} | H/M/L | H/M/L | {where found} |
+```
 
 8. **Update base.md** — increment opportunities count, update Value & Innovation Landscape if needed
 
