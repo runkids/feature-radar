@@ -56,17 +56,17 @@ If skipping, jump directly to ## Workflow.
 
 Ask these one at a time. Prefer multiple-choice when possible.
 
-1. **Problem space** — "你想解決什麼問題，或改善什麼體驗？"
+1. **Problem space** — "What problem are you trying to solve, or what experience do you want to improve?"
    - Cross-reference: search existing `opportunities/` and `archive/` for related themes.
-   - If a match is found, surface it: "這跟 #{nn} {title} 有關嗎？還是完全不同的方向？"
-2. **Target user** — "誰會從這個功能受益？"
+   - If a match is found, surface it: "Is this related to #{nn} {title}, or a completely different direction?"
+2. **Target user** — "Who would benefit from this feature?"
    - Offer choices derived from `base.md` Project Context if available.
-3. **Spark** — "是什麼觸發了這個想法？"
-   - (A) 自己使用時遇到的痛點
-   - (B) 看到別的工具/專案有類似功能
-   - (C) 技術上新的可能性（新 API、新 library）
-   - (D) 社群/使用者的回饋
-   - (E) 純粹的 creative exploration
+3. **Spark** — "What triggered this idea?"
+   - (A) A pain point from my own usage
+   - (B) Saw a similar feature in another tool/project
+   - (C) New technical possibilities (new API, new library)
+   - (D) Community/user feedback
+   - (E) Pure creative exploration
 
 ### Phase 2: Adaptive Depth
 
@@ -77,33 +77,33 @@ After Phase 1, assess idea maturity:
 
 **Emerging** (has problem but fuzzy shape):
 → Ask up to 3 more questions to sharpen:
-  - "你想像中的使用方式大概是什麼樣子？"
-  - "有沒有你看過的實作方式特別喜歡的？" (if yes, consider creating a `references/` entry)
-  - "這個功能做到什麼程度你會覺得夠用？" (MVP scoping)
+  - "What does the usage look like in your mind?"
+  - "Have you seen an implementation you particularly liked?" (if yes, consider creating a `references/` entry)
+  - "What's the minimum scope that would feel useful?" (MVP scoping)
 
 **Raw** (pure exploration, no clear problem yet):
 → Switch to open-ended dialogue. Ask up to 5 more questions:
   - Explore adjacent possibilities
-  - Challenge assumptions: "如果不做這個，最大的損失是什麼？"
-  - Seek demand signals: "有沒有人（包括你自己）反覆遇到這個問題？"
+  - Challenge assumptions: "If we don't build this, what's the biggest loss?"
+  - Seek demand signals: "Has anyone (including yourself) run into this problem repeatedly?"
   - Stop when: a clear feature shape emerges, OR user says "enough"
 
 ### Exit: Output Options
 
 Summarize the refined idea:
 
-"整理一下我們剛才的討論：
-- **問題：** {problem}
-- **對象：** {target user}
-- **方向：** {feature shape}
-- **需求信號：** {demand evidence or 'creative exploration'}
-- **相關項目：** {related opportunities/archive/specs, or 'none found'}"
+"Here's a summary of our discussion:
+- **Problem:** {problem}
+- **Target user:** {target user}
+- **Direction:** {feature shape}
+- **Demand signal:** {demand evidence or 'creative exploration'}
+- **Related items:** {related opportunities/archive/specs, or 'none found'}"
 
 Then ask:
 
-"接下來你想怎麼做？"
-- **(A) 直接進入 scan** — 以這個方向作為 scan 的聚焦 context，搜尋 6 個來源尋找更多佐證和相關機會
-- **(B) 先存成 opportunity 草稿** — 寫入 `opportunities/{nn}-{slug}.md`，標記 Status: Open，之後再決定是否 scan
+"What would you like to do next?"
+- **(A) Proceed to scan** — use this direction as focused context, search all 6 sources for supporting evidence and related opportunities
+- **(B) Save as opportunity draft** — write to `opportunities/{nn}-{slug}.md` with Status: Open, decide later whether to scan
 
 If (A): Pass the summary as context into ## Workflow Step 1, with a narrowed focus on the identified direction.
 If (B): Create the opportunity file following `../feature-radar/references/SPEC.md` § 3.3, populate fields from the intake summary, then run the Annotation Checkpoint per `../feature-radar/references/WORKFLOW-PATTERNS.md`. After approval, present Completion Summary and suggest "run a focused scan around this direction" as a next step.
@@ -186,21 +186,21 @@ Use the format defined in `../feature-radar/references/SPEC.md` § 3.3 (`opportu
 User: "I was thinking... what if we could automatically detect when a feature is getting stale?"
 
 Phase 1:
-  Q1 (Problem): "你想解決什麼問題？" → Feature opportunities sitting unreviewed
+  Q1 (Problem): "What problem are you trying to solve?" → Feature opportunities sitting unreviewed
   Cross-ref: Found #05 role-assignment — user confirms: different direction
-  Q2 (Target): "誰受益？" → Project maintainers managing backlogs
-  Q3 (Spark): (A) 自己的痛點
+  Q2 (Target): "Who benefits?" → Project maintainers managing backlogs
+  Q3 (Spark): (A) Pain point from own usage
 
 Phase 2 (Emerging → 2 follow-ups):
-  Q4: "使用方式？" → Periodic check, flag items older than N days with no activity
-  Q5: "夠用的程度？" → Just a reminder in completion summary, no automation needed
+  Q4: "What does usage look like?" → Periodic check, flag items older than N days with no activity
+  Q5: "Minimum useful scope?" → Just a reminder in completion summary, no automation needed
 
 Exit summary:
-  問題: Stale opportunities go unnoticed
-  對象: Project maintainers
-  方向: Staleness detection in completion summaries
-  需求信號: Personal pain point (single user)
-  相關: None found
+  Problem: Stale opportunities go unnoticed
+  Target user: Project maintainers
+  Direction: Staleness detection in completion summaries
+  Demand signal: Personal pain point (single user)
+  Related: None found
 
 User chose: (B) Save as opportunity draft
 → Created opportunities/06-staleness-detection.md (Impact: Low, Effort: Low)
