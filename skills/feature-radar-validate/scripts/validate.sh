@@ -36,6 +36,10 @@ for skill_file in skills/*/SKILL.md; do
     error "missing 'name' field"
   elif ! echo "$name" | grep -qE '^[a-z0-9]+(-[a-z0-9]+)*$'; then
     error "name '$name' is not kebab-case"
+  elif [ "${#name}" -gt 64 ]; then
+    error "name is ${#name} chars (max 64)"
+  elif [ "$name" != "$skill_dir" ]; then
+    error "name '$name' does not match directory '$skill_dir'"
   else
     pass "name: $name"
   fi

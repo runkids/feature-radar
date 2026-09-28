@@ -54,6 +54,8 @@ For each issue, apply the appropriate fix:
 | `description` missing "Use when" | Add a "Use when:" section based on the skill's purpose |
 | `name` not kebab-case | Rename to kebab-case |
 | `name` missing | Derive from directory name |
+| `name` > 64 chars | Propose a shorter name and ask user to confirm — the name is how the skill is invoked |
+| `name` does not match directory | Set `name` to the directory name; if the `name` is the intended one, ask user before renaming the directory (other skills reference it by path) |
 | Body > 500 lines | Flag for user — this requires judgment about what to extract into reference files |
 | Filename not `{nn}-{slug}.md` | Rename file to correct format |
 | Missing `**Status**:` / `**Impact**:` / `**Effort**:` | Add field with a placeholder value, ask user to confirm |
