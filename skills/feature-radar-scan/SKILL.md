@@ -3,16 +3,11 @@ name: feature-radar-scan
 description: |
   Discover new feature opportunities from creative brainstorming, user feedback, ecosystem
   trends, and cross-project research. Writes results to .feature-radar/opportunities/.
-  MUST use this skill when the user wants to GENERATE new ideas — not evaluate existing ones.
-  Trigger on any request to brainstorm, explore, discover, or find new feature ideas, even
-  casual ones like "I wonder what else we could do" or "give me ideas".
-  Use when the user:
-  - Asks "what else could we build?", "give me feature ideas", "what are we missing?"
-  - Wants to brainstorm, explore new directions, or refresh the opportunity backlog
-  - Says "scan ecosystem", "scan opportunities", "find new features"
-  - Asks to review GitHub issues, community feedback, or adjacent tools for inspiration
-  - Mentions "explore", "discover", or "new directions" in a feature context
-  - Has a vague idea: "I have an idea", "what if we...", "I was thinking about..."
+  MUST use this skill when the user wants to GENERATE new ideas — not evaluate existing ones —
+  including casual or half-formed ones ("what if we...", "I have an idea").
+  Use when the user wants feature ideas or new directions, asks what the project is missing,
+  wants to mine issues, community feedback, or adjacent tools for inspiration, or wants to
+  refresh the opportunity backlog.
   Do NOT use for evaluating/prioritizing existing features — that's feature-radar's job.
 ---
 
@@ -32,24 +27,15 @@ Read and follow `../feature-radar/references/DEEP-READ.md` — complete all 6 st
 Read and follow `../feature-radar/references/DIRECTIVES.md`.
 
 Additional directive for this skill:
-- **Filter aggressively** — Do NOT create opportunity files for weak signals. If you can't cite concrete demand evidence, skip it.
+- **Filter aggressively** — Create an opportunity file only when you can cite concrete demand evidence or make a clear innovation case. Skip weak signals, such as a single issue with no engagement.
 </HARD-GATE>
 
 ## Brainstorm Intake
 
 <HARD-GATE>
-Evaluate whether the user arrived with a vague or exploratory idea.
+Run Brainstorm Intake when the user brings an idea of their own ("I have an idea", "what if we...", "I was thinking about...", "brainstorm") or describes a problem without a clear feature shape.
 
-Enter Brainstorm Intake if ANY of these are true:
-- User says "I have an idea", "what if we...", "I was thinking about...", "brainstorm"
-- User describes a problem without a clear feature shape
-- User's input lacks specific demand signals, impact/effort estimates, or a concrete feature name
-
-Skip Brainstorm Intake if ALL of these are true:
-- User gave a specific directive like "scan opportunities", "scan ecosystem", "find new features"
-- User's input does not contain a personal idea or vague exploration
-
-If skipping, jump directly to ## Workflow.
+When the user asked for a scan directly ("scan opportunities", "scan ecosystem", "find new features") and brought no idea of their own, jump directly to ## Workflow.
 </HARD-GATE>
 
 ### Phase 1: Core Questions
@@ -129,12 +115,7 @@ If (B): Create the opportunity file following `../feature-radar/references/SPEC.
    - Already partially implemented? → mark as "Partially Done"
    - Does existing architecture support this? → note in "Design Notes"
    - Related TODOs or FIXMEs in the code? → cite them
-5. **Evaluate each candidate**:
-
-<HARD-GATE>
-Before creating any opportunity file, evaluate the candidate against ALL 6 criteria.
-Each criterion must be explicitly addressed — do not skip any.
-</HARD-GATE>
+5. **Evaluate each candidate** against all 6 criteria before creating its opportunity file, addressing each criterion explicitly:
 
 | Criterion | Question |
 |-----------|----------|

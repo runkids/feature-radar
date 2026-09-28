@@ -3,14 +3,10 @@ name: feature-radar-archive
 description: |
   Archive a completed, rejected, or covered feature into .feature-radar/archive/ with mandatory
   learning extraction. MUST use this skill whenever a feature reaches a terminal state — done,
-  rejected, covered, deferred, or N/A. Even casual mentions like "we shipped X" or "X is done"
-  should trigger this. The skill extracts learnings, derives new opportunities, and updates refs.
-  Use when the user:
-  - Says "we shipped X", "X is done", "X is complete", "we just finished X"
-  - Rejects a feature: "we decided not to build X", "reject this", "doesn't fit"
-  - Defers: "defer X", "postpone this", "revisit later", "not now"
-  - Closes an opportunity: "close this opportunity", "mark as done", "archive this"
-  - Mentions any feature reaching Done/Covered/Rejected/Deferred status
+  rejected, covered, deferred, or N/A — including casual mentions like "we shipped X".
+  The skill extracts learnings, derives new opportunities, and updates refs.
+  Use when the user reports a feature shipped or finished, decides against building one,
+  defers or postpones one, or asks to close or archive an opportunity.
   Do NOT use for discovering new features — that's feature-radar-scan's job.
 ---
 
@@ -48,7 +44,7 @@ Read and follow `../feature-radar/references/DIRECTIVES.md`.
 
 <HARD-GATE>
 Complete ALL 5 checks below. For each check, you MUST explicitly state the finding.
-Do NOT proceed to step 5 until every check has a written response.
+Do NOT proceed to step 6 until every check has a written response.
 
 □ archive/{nn}-{slug}.md created with correct status
 □ Extract learnings      → specs/{topic}.md
@@ -60,6 +56,7 @@ Acceptable responses per check:
 - "No learnings to extract" — acceptable, but must be stated
 - "New opportunity identified: {description}" — create the file
 - "No reference updates needed" — acceptable, but must be stated
+- "No ecosystem trend changes" — acceptable, but must be stated
 </HARD-GATE>
 
 6. **Remove from opportunities** — if the feature had an `opportunities/` file, delete it

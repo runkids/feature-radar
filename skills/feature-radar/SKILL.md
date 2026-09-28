@@ -6,13 +6,9 @@ description: |
   Modes: full (all phases), quick (scan only), evaluate (prioritize), #N (deep-dive one).
   MUST use this skill whenever the user asks about feature priorities, roadmaps, what to build,
   or wants to evaluate/compare feature ideas — even if they don't say "feature radar" explicitly.
-  Use when the user:
-  - Asks "what should we build next?", "what's most impactful?", or similar
-  - Wants to prioritize, rank, or compare features or backlog items
-  - Needs roadmap planning, project direction, or strategic feature decisions
-  - Says "help me prioritize", "review our backlog", "what are we missing"
-  - Mentions .feature-radar/ directory or feature tracking
-  - Wants periodic reassessment of deferred or open opportunities
+  Use when the user wants to decide what to build next, rank or compare features and backlog
+  items, plan a roadmap or project direction, reassess deferred or open opportunities, or
+  mentions the .feature-radar/ directory.
 ---
 
 # Feature Discovery & Prioritization
@@ -56,9 +52,9 @@ Then generate `base.md` by completing the following:
 <HARD-GATE>
 Complete ALL steps before presenting base.md to the user:
 
-1. **Detect stack** — read `go.mod`, `package.json`, `Cargo.toml`, `pyproject.toml`. Follow imports to understand the dependency graph. Don't just read the config — understand the architecture.
-2. **Map structure** — list top-level directories. For each, read at least one file to understand its purpose. Identify: entry points, core logic, tests, docs, configuration.
-3. **Extract features** — scan exports, commands, API routes, or public functions. Read the implementations, not just the names. Understand what each feature actually does.
+1. **Detect stack and architecture** — start from `go.mod`, `package.json`, `Cargo.toml`, `pyproject.toml`, then the code they point to.
+2. **Map structure** — identify entry points, core logic, tests, docs, and configuration across the top-level directories.
+3. **Extract features** — from exports, commands, API routes, or public functions, described by what the implementation does.
 4. **Find inspiration sources** — read README, CONTRIBUTING, docs/ for related projects and communities
 5. **Verify with user** — present the generated base.md and ask: "Does this accurately describe your project?"
 </HARD-GATE>
@@ -127,8 +123,6 @@ Phase execution rules (mode-dependent):
 - Phase 1-4: Skip.
 - Phase 5: Evaluate the single targeted opportunity only.
 - Phase 6: Propose for that opportunity only.
-
-For each phase completed, state what was produced before moving to the next phase.
 </HARD-GATE>
 
 ### Phase 1: Scan & Classify
@@ -244,4 +238,3 @@ Follow the template in `references/DIRECTIVES.md`, with skill name "Complete" an
 - **Chase value, not features.** Ask "what problem does this solve?" before "what does this do?"
 - **Be honest about effort.** Low < 1 day. Medium 1-3 days. High 1+ week.
 - **Challenge deferred items.** "Deferred" ≠ "forever" — re-evaluate each session.
-- **Think creatively.** The best features aren't always the obvious ones — look for novel angles.

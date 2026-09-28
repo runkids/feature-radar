@@ -3,16 +3,10 @@ name: feature-radar-validate
 description: |
   Validate SKILL.md frontmatter and .feature-radar/ files against format rules. Runs
   validate.sh, reports errors/warnings, and auto-fixes issues. MUST use this skill after
-  editing any SKILL.md or .feature-radar/ file — catches format bugs like the 1024-char
-  description limit before they break skill registration.
-  Use when:
-  - User says "validate", "check format", "lint skills", "run validation"
-  - You just edited a SKILL.md (description, name, or body) — run proactively
-  - You created or modified files in .feature-radar/ — run proactively
-  - Before committing changes that touch skills/ or .feature-radar/
-  - User asks "are my skills valid?", "verify skills", "check skill format"
-  IMPORTANT: Use this proactively after ANY edit to skills/ or .feature-radar/ files,
-  even if the user doesn't ask for it. Format validation prevents silent breakage.
+  editing any SKILL.md or .feature-radar/ file, even if the user doesn't ask — catches format
+  bugs like the Agent Skills spec's 1024-char description limit before they break the skill.
+  Use when the user asks to validate, lint, or verify skills or .feature-radar/ files, after
+  editing either, or before committing changes that touch skills/ or .feature-radar/.
 ---
 
 # Validate Feature Radar
@@ -21,7 +15,7 @@ Run `skills/feature-radar-validate/scripts/validate.sh` from the project root to
 
 ## Why This Matters
 
-The `description` field in SKILL.md has a hard 1024-character limit enforced by the skill registry. Exceeding it silently breaks skill registration. Similarly, `.feature-radar/` files must follow SPEC.md naming and metadata conventions or downstream tools can't parse them. This skill catches these issues before they cause problems.
+The `description` field in SKILL.md has a 1024-character limit in the Agent Skills spec (agentskills.io/specification, checked 2026-09-29). Agents that enforce the spec may reject a longer description; Claude Code instead truncates the skill listing at 1,536 characters, cutting off trigger text. Similarly, `.feature-radar/` files must follow SPEC.md naming and metadata conventions or downstream tools can't parse them. This skill catches these issues before they cause problems.
 
 ## Workflow
 

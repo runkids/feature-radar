@@ -3,15 +3,9 @@ name: feature-radar-learn
 description: |
   Extract reusable patterns, architectural decisions, and pitfalls from completed work
   into .feature-radar/specs/. Captures the "why" behind choices so future sessions build
-  on past experience. MUST use this skill when the user reflects on what worked/didn't,
-  wants to document a decision, or mentions remembering a pattern for future use.
-  Use when the user:
-  - Says "remember this approach", "document this decision", "save this pattern"
-  - Reflects: "that worked well", "lessons learned", "what did we learn"
-  - Wants to capture: "don't forget this", "this was a good pattern"
-  - Hit a dead end: "this didn't work because...", "avoid this approach"
-  - Made a technical decision worth recording for posterity
-  - Says "extract learnings" or "capture what we learned"
+  on past experience. MUST use this skill when the user reflects on what worked or didn't,
+  wants to record a decision or pattern for future use, or hit a dead end worth documenting.
+  Use when the user asks to remember, document, or extract lessons from recent work.
   Do NOT use for recording external observations — that's feature-radar-ref's job.
   Do NOT use for archiving completed features — that's feature-radar-archive's job.
 ---
@@ -36,20 +30,11 @@ Read and follow `../feature-radar/references/DIRECTIVES.md`.
 
 1. **Identify the source** — ask the user what was just completed (feature, bug fix, refactor, investigation)
 2. **Analyze the work** — review recent commits, changed files, and implementation decisions
-3. **Extract knowledge** — identify what's reusable:
-   - **Patterns**: recurring solutions worth replicating (e.g., "three-tier config merge")
-   - **Decisions**: architectural choices with rationale (e.g., "YAML over JSON because...")
-   - **Pitfalls**: mistakes or dead ends others should avoid
-   - **Techniques**: implementation approaches that worked well
-<HARD-GATE>
-Before writing to specs/, classify each piece of knowledge into exactly one category:
-- **Pattern**: recurring solution worth replicating
-- **Decision**: architectural choice with rationale
-- **Pitfall**: mistake or dead end to avoid
-- **Technique**: implementation approach that worked well
-
-State the classification explicitly in your output.
-</HARD-GATE>
+3. **Extract knowledge** — classify each reusable piece into exactly one category, and state the classification in your output:
+   - **Pattern**: recurring solution worth replicating (e.g., "three-tier config merge")
+   - **Decision**: architectural choice with rationale (e.g., "YAML over JSON because...")
+   - **Pitfall**: mistake or dead end to avoid
+   - **Technique**: implementation approach that worked well
 
 4. **Write to specs** — create or append to `.feature-radar/specs/{topic}.md`
 5. **Checkpoint** — State what was written and ask: "I've written to `specs/{topic}.md` ({classification type}). Does this look correct, or should I adjust anything?" Wait for user confirmation before proceeding.
