@@ -6,6 +6,10 @@ Your AI agent is great at writing code. But ask it "what should we build next?" 
 
 Feature Radar fixes this. It creates an external brain (`.feature-radar/`) that persists across sessions — so your agent accumulates knowledge instead of starting from zero every time.
 
+<p align="center">
+  <img src="assets/feature-radar.svg" alt="A friendly radar uses project context and past decisions to identify meaningful feature opportunities" width="100%">
+</p>
+
 ## Before / After
 
 **Before Feature Radar:**
@@ -33,6 +37,10 @@ The fastest way to inject your domain knowledge:
 ```
 
 Your agent learns from your corrections. Architecture constraints, naming conventions, strategic priorities — all captured in files that persist forever.
+
+<p align="center">
+  <img src="assets/feature-radar-workflow.svg" alt="Three steps: remember project context, evaluate opportunities with your notes, and archive outcomes to extract learnings for next time" width="100%">
+</p>
 
 ## Quick Start
 

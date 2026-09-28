@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">Feature Radar: find your next meaningful feature</title>
+  <desc id="desc">Project context and past decisions feed a friendly radar that highlights promising opportunities. Knowledge is kept in the .feature-radar directory across sessions.</desc>
+  <defs>
+    <linearGradient id="sky" x2="1" y2="1"><stop stop-color="#19243d"/><stop offset="1" stop-color="#2c4058"/></linearGradient>
+    <linearGradient id="sweep" x2="1" y2="0"><stop stop-color="#a7d7bc" stop-opacity=".02"/><stop offset="1" stop-color="#a7d7bc" stop-opacity=".3"/></linearGradient>
+  </defs>
+  <rect width="1200" height="420" rx="26" fill="url(#sky)"/>
+  <g fill="#dce5ff" opacity=".5">
+    <circle cx="40" cy="39" r="2"/><circle cx="130" cy="72" r="1.5"/><circle cx="287" cy="32" r="2"/><circle cx="408" cy="65" r="1.5"/><circle cx="485" cy="29" r="2"/><circle cx="709" cy="49" r="2"/><circle cx="824" cy="30" r="1.5"/><circle cx="999" cy="52" r="2"/><circle cx="1161" cy="37" r="2"/>
+    <circle cx="35" cy="225" r="1.5"/><circle cx="393" cy="186" r="2"/><circle cx="803" cy="233" r="1.5"/><circle cx="1162" cy="187" r="2"/><circle cx="70" cy="366" r="2"/><circle cx="321" cy="378" r="1.5"/><circle cx="443" cy="337" r="2"/><circle cx="759" cy="370" r="2"/><circle cx="1004" cy="377" r="1.5"/><circle cx="1159" cy="347" r="2"/>
+  </g>
+  <g font-family="ui-sans-serif, system-ui, sans-serif">
+    <text x="68" y="74" fill="#c4d4e7" font-size="16" font-weight="700" letter-spacing="2">KEEP THE CONTEXT</text>
+    <g transform="translate(68 100)">
+      <rect width="285" height="91" rx="16" fill="#fffaf0"/>
+      <rect x="18" y="21" width="37" height="47" rx="6" fill="#e1eae4"/>
+      <path d="M27 35h19m-19 10h19m-19 10h12" stroke="#728f80" stroke-width="3" stroke-linecap="round"/>
+      <text x="73" y="38" fill="#304359" font-size="21" font-weight="700">Project context</text>
+      <text x="73" y="65" fill="#57677b" font-size="17">Architecture &amp; priorities</text>
+      <rect y="110" width="285" height="91" rx="16" fill="#fffaf0"/>
+      <circle cx="37" cy="155" r="21" fill="#f4e4b7"/>
+      <path d="M37 142v14l9 5" fill="none" stroke="#8b7548" stroke-width="3" stroke-linecap="round"/>
+      <text x="73" y="149" fill="#304359" font-size="21" font-weight="700">Past decisions</text>
+      <text x="73" y="176" fill="#57677b" font-size="17">Learnings &amp; tradeoffs</text>
+    </g>
+    <path d="M364 199h66m-9-8 9 8-9 8M766 199h66m-9-8 9 8-9 8" fill="none" stroke="#b4c9d9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 7"/>
+    <g transform="translate(600 199)">
+      <circle r="142" fill="#203b48" stroke="#729a98" stroke-width="2"/>
+      <g fill="none" stroke="#668e8b" opacity=".55"><circle r="106"/><circle r="70"/><path d="M-142 0h284M0-142v284"/></g>
+      <path d="M0 0V-142A142 142 0 0 1 123-71Z" fill="url(#sweep)"/>
+      <path d="M0 0 123-71" stroke="#a7d7bc" stroke-width="2"/>
+      <circle cx="-88" cy="-48" r="6" fill="#a7becb"/><circle cx="-52" cy="92" r="5" fill="#a7becb"/>
+      <circle cx="79" cy="-79" r="17" fill="#f3d98d" fill-opacity=".15"/><circle cx="79" cy="-79" r="7" fill="#f3d98d"/>
+      <circle cx="104" cy="48" r="6" fill="#a7d7bc"/>
+      <rect x="-42" y="-34" width="84" height="70" rx="25" fill="#f3d98d"/>
+      <path d="M0-34v-12" stroke="#f3d98d" stroke-width="4"/><circle cy="-51" r="6" fill="#fff0bd"/>
+      <path d="M-24-5q6-8 12 0M12-5q6-8 12 0M-9 12q9 10 18 0" fill="none" stroke="#5b5260" stroke-width="3" stroke-linecap="round"/>
+      <g fill="#dc9c87"><ellipse cx="-25" cy="10" rx="6" ry="3"/><ellipse cx="25" cy="10" rx="6" ry="3"/></g>
+    </g>
+    <text x="859" y="74" fill="#c4d4e7" font-size="16" font-weight="700" letter-spacing="2">FIND WHAT MATTERS</text>
+    <rect x="852" y="100" width="280" height="201" rx="16" fill="#fffaf0"/>
+    <rect x="873" y="120" width="122" height="28" rx="14" fill="#e1eae4"/>
+    <text x="934" y="140" text-anchor="middle" fill="#466554" font-size="14" font-weight="700">OPPORTUNITIES</text>
+    <g fill="#304359" font-size="20" font-weight="600"><text x="898" y="185">Grounded in evidence</text><text x="898" y="225">Ranked by value</text><text x="898" y="265">Yours to decide</text></g>
+    <g fill="#88aa97"><circle cx="879" cy="178" r="4"/><circle cx="879" cy="218" r="4"/><circle cx="879" cy="258" r="4"/></g>
+    <text x="600" y="384" text-anchor="middle" fill="#e4ecec" font-size="19">A little radar. A growing memory. A clearer next step.</text>
+  </g>
+</svg>

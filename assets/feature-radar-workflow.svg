@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" role="img" aria-labelledby="title desc">
+  <title id="title">From project knowledge to the next informed decision</title>
+  <desc id="desc">Three panels: read the saved project context, evaluate opportunities with your feedback, then archive outcomes and extract learnings for future sessions. Implementation happens after planning.</desc>
+  <rect width="1200" height="400" rx="26" fill="#1e2c45"/>
+  <g fill="#fffaf0"><rect x="20" y="20" width="373" height="360" rx="20"/><rect x="413" y="20" width="374" height="360" rx="20"/><rect x="807" y="20" width="373" height="360" rx="20"/></g>
+  <g font-family="ui-sans-serif, system-ui, sans-serif">
+    <g fill="#f3d98d"><circle cx="54" cy="56" r="15"/><circle cx="447" cy="56" r="15"/><circle cx="841" cy="56" r="15"/></g>
+    <g fill="#4d5362" font-size="16" font-weight="700" text-anchor="middle"><text x="54" y="62">1</text><text x="447" y="62">2</text><text x="841" y="62">3</text></g>
+    <g fill="#304359" font-size="23" font-weight="700"><text x="80" y="64">Remember</text><text x="473" y="64">Evaluate together</text><text x="867" y="64">Learn for next time</text></g>
+    <g transform="translate(58 96)">
+      <path d="M0 29V12Q0 0 12 0h88l19 20h167q12 0 12 12v143q0 12-12 12H12q-12 0-12-12Z" fill="#dfeae3" stroke="#a6bfb0" stroke-width="2"/>
+      <text x="20" y="57" fill="#466554" font-family="ui-monospace, monospace" font-size="21">.feature-radar/</text>
+      <rect x="19" y="77" width="260" height="89" rx="10" fill="#fffdf8"/>
+      <text x="35" y="105" fill="#304359" font-family="ui-monospace, monospace" font-size="19">base.md</text>
+      <path d="M36 122h176m-176 19h133" stroke="#b1c2b8" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="246" cy="141" r="27" fill="#f3d98d"/>
+      <path d="M233 136q3-4 6 0m9 0q3-4 6 0m-15 12q7 6 14 0" fill="none" stroke="#5b5260" stroke-width="2.5" stroke-linecap="round"/>
+    </g>
+    <g transform="translate(447 99)">
+      <rect width="306" height="110" rx="13" fill="#e7edf4" stroke="#b6c5d6" stroke-width="2"/>
+      <text x="18" y="33" fill="#304359" font-size="19" font-weight="700">Which opportunity fits?</text>
+      <rect x="18" y="51" width="172" height="13" rx="6" fill="#8caa99"/><rect x="18" y="77" width="106" height="13" rx="6" fill="#adbdce"/>
+      <text x="204" y="63" fill="#466554" font-size="16">Impact</text><text x="204" y="89" fill="#53677d" font-size="16">Effort</text>
+      <path d="M24 132h266q12 0 12 12v45q0 12-12 12H75l-20 15v-15H24q-12 0-12-12v-45q0-12 12-12Z" fill="#f4e4b7"/>
+      <text x="29" y="158" fill="#62563c" font-family="ui-monospace, monospace" font-size="17">&gt; NOTE: start smaller.</text>
+      <text x="29" y="184" fill="#62563c" font-size="17">Split into two phases.</text>
+    </g>
+    <g transform="translate(842 99)">
+      <rect width="304" height="65" rx="12" fill="#e7edf4" stroke="#b6c5d6" stroke-width="2"/>
+      <text x="19" y="28" fill="#304359" font-family="ui-monospace, monospace" font-size="20">archive/</text>
+      <text x="19" y="51" fill="#57677b" font-size="16">Keep outcomes &amp; rationale</text>
+      <path d="M152 76v25m-7-7 7 7 7-7" fill="none" stroke="#819b8d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect y="113" width="304" height="79" rx="12" fill="#dfeae3" stroke="#a6bfb0" stroke-width="2"/>
+      <text x="19" y="143" fill="#304359" font-family="ui-monospace, monospace" font-size="20">specs/</text>
+      <text x="19" y="172" fill="#466554" font-size="17">Patterns for future decisions</text>
+    </g>
+    <g fill="#57677b" font-size="18" text-anchor="middle"><text x="206" y="334">Start with your project's history.</text><text x="600" y="334">Refine the plan with your notes.</text><text x="993" y="334">Let each outcome teach the next.</text></g>
+  </g>
+</svg>
